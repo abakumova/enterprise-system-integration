@@ -53,7 +53,6 @@ return productService.getProductWithQuantity(id);
 
 // --------------------------------  Circuit Breaker
 
-/*
 @GetMapping("/products/quantityCB/{id}")
 @CircuitBreaker(name = "inventory", fallbackMethod = "fallbackQuantityCB")
 public Optional<ProductQuantityDto>  getProductWithQuantityCB(@PathVariable String id){
@@ -63,8 +62,7 @@ return  productService.getProductWithQuantityCB(id);
 public Optional<ProductQuantityDto>  fallbackQuantityCB(Exception e) {
     log.info("We are not able to fetch the quality of the product");
     return  Optional.of(new ProductQuantityDto("00", "p-000-00", "type of product", "description of product", BigDecimal.valueOf(0), 0 ));
-}   
-*/
+}
 
 // --------------------------------  Circuit Breaker
 
