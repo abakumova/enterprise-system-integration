@@ -52,7 +52,7 @@ return productService.getProductWithQuantity(id);
 }
 
 // --------------------------------  Circuit Breaker
-
+/*
 @GetMapping("/products/quantityCB/{id}")
 @CircuitBreaker(name = "inventory", fallbackMethod = "fallbackQuantityCB")
 public Optional<ProductQuantityDto>  getProductWithQuantityCB(@PathVariable String id){
@@ -65,11 +65,10 @@ public Optional<ProductQuantityDto>  fallbackQuantityCB(Exception e) {
 }
 
 // --------------------------------  Circuit Breaker
+*/
+// --------------------------------  Circuit Breaker + TimeLimiter
 
-// --------------------------------  Circuit Breaker + TimeLimiter  
-//To be comminted out 
 
-/* 
 @GetMapping("/products/quantityCB/{id}")
 @CircuitBreaker(name = "inventory", fallbackMethod = "fallbackQuantityCB")
 @TimeLimiter(name = "inventory")
@@ -77,14 +76,14 @@ public CompletableFuture<Optional<ProductQuantityDto>>  getProductWithQuantityCB
   System.out.println(new Date() + " Call processing finished = " + Thread.currentThread().getName());
   return CompletableFuture.supplyAsync(() -> productService.getProductWithQuantityCB(id));
 }
-// A CompltableFuture is used for asynchronous programming. 
+// A CompletableFuture is used for asynchronous programming.
 // It runs a task on a separate thread than the main application thread and notifies the main thread about its progress, completion or failure
 
 public CompletableFuture<Optional<ProductQuantityDto>>  fallbackQuantityCB(Exception e) { //RuntimeException runtimeException
   log.info("We are not able to fetch the quality of the product");          
   return  CompletableFuture.supplyAsync(() -> Optional.of(new ProductQuantityDto("00", "p-000-00", "type of product", "description of product", BigDecimal.valueOf(0), 0 )));
 }  
-*/
+
 // --------------------------------  Circuit Breaker + TimeLimiter  
 
 

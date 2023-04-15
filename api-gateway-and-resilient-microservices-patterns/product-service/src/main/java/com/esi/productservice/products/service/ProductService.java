@@ -74,21 +74,22 @@ public class ProductService {
     }
 
     // --------------------------------  Circuit Breaker
+    /*
     public Optional<ProductQuantityDto> getProductWithQuantityCB(String id) {
         Optional<Product> product = productRepository.findById(id);
         return product.map(this::mapToProductQuantityDto);
     }
+     */
     // --------------------------------  Circuit Breaker
 
     // --------------------------------  All the rest
-        /*   
+
         @SneakyThrows // to handle the exception thrown by Thread.sleep(8000);
         public   Optional<ProductQuantityDto>  getProductWithQuantityCB(String id){
             Optional<Product> product =  productRepository.findById(id);
             Thread.sleep(8000); // just to cause a delay of 8 seconds
             return product.map(this::mapToProductQuantityDto);
-        } 
-        */
+        }
     // --------------------------------  All the rest
 
     public void addProduct(ProductDto productDto) {
