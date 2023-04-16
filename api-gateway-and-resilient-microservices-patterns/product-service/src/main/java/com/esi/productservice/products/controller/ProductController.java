@@ -68,7 +68,7 @@ public Optional<ProductQuantityDto>  fallbackQuantityCB(Exception e) {
 */
 // --------------------------------  Circuit Breaker + TimeLimiter
 
-
+/*
 @GetMapping("/products/quantityCB/{id}")
 @CircuitBreaker(name = "inventory", fallbackMethod = "fallbackQuantityCB")
 @TimeLimiter(name = "inventory")
@@ -83,13 +83,13 @@ public CompletableFuture<Optional<ProductQuantityDto>>  fallbackQuantityCB(Excep
   log.info("We are not able to fetch the quality of the product");          
   return  CompletableFuture.supplyAsync(() -> Optional.of(new ProductQuantityDto("00", "p-000-00", "type of product", "description of product", BigDecimal.valueOf(0), 0 )));
 }  
-
+*/
 // --------------------------------  Circuit Breaker + TimeLimiter  
 
 
 
 // --------------------------------   Retry
-/* 
+
 private int attempt = 1;
 @GetMapping("/products/quantityCB/{id}")
 @Retry(name = "inventory", fallbackMethod = "fallbackQuantityCB")
@@ -102,7 +102,7 @@ public CompletableFuture<Optional<ProductQuantityDto>>  fallbackQuantityCB(Excep
   log.info("We are not able to fetch the quality of the product");          
   return  CompletableFuture.supplyAsync(() -> Optional.of(new ProductQuantityDto("00", "p-000-00", "type of product", "description of product", BigDecimal.valueOf(0), 0 )));
 }
-*/
+
 // --------------------------------  Retry
 
 
