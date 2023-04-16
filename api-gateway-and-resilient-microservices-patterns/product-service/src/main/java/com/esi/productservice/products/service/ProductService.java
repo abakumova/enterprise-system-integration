@@ -87,7 +87,7 @@ public class ProductService {
         @SneakyThrows // to handle the exception thrown by Thread.sleep(8000);
         public   Optional<ProductQuantityDto>  getProductWithQuantityCB(String id){
             Optional<Product> product =  productRepository.findById(id);
-            Thread.sleep(8000); // just to cause a delay of 8 seconds
+            //Thread.sleep(8000); // just to cause a delay of 8 seconds
             return product.map(this::mapToProductQuantityDto);
         }
     // --------------------------------  All the rest
