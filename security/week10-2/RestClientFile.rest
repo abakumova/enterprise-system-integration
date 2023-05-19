@@ -1,0 +1,31 @@
+### Add a user with Role/Authority ADMIN
+POST  http://localhost:8090/api/new HTTP/1.1
+content-type: application/json
+
+{
+    "name": "admin",
+    "password": "admin",
+    "roles": "ADMIN"
+}
+
+### Add a user with Role/Authority USER
+POST  http://localhost:8090/api/new HTTP/1.1
+content-type: application/json
+
+{
+    "name": "user",
+    "password": "user",
+    "roles": "USER"
+}
+
+### Public endpoint
+GET http://localhost:8090/api/public
+
+### If you run the following requests in RestClient you will recieve a form (an HTML page) as we configure our security 
+### to use a form for checking the credentials of a user. Therefore, use the browser when you want to try any of them 
+
+### Protected endpoint - only admins are allowed - Username: admin Password: admin
+GET http://localhost:8090/api/admin
+
+### Protected endpoint - only users are allowed - Username: user Password: user
+GET http://localhost:8090/api/user
