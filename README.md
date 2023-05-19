@@ -28,3 +28,6 @@ Practical sessions:
      - [Pre Lab] Session 10.1: Spring Boot Security - in-memory authentication
      - Session 10.2: Spring Boot Security - Authentication and Authorization through JPA
      - [Extra - not part of the course] Session 10.3: Spring Boot Security - Authorization with OAuth2
+     - Session 11.1: Spring Boot Security - Auth-service JWT
+     - Session 12.1: "Secure" project (A Single Spring Boot App + VueJs) - Auth Service (JWT)
+     - Session 12.2: "Secure" project (Spring Boot + VueJs) - Auth Service (JWT) for Microservice-based Systems
