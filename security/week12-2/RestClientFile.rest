@@ -1,0 +1,42 @@
+
+### Create a new user with Role/Authority ADMIN
+POST    http://localhost:8080/api/auth/signup HTTP/1.1
+content-type: application/json
+
+{
+    "name": "admin",
+    "email": "admin@ut.ee",
+    "password": "admin",
+    "roles": "ADMIN"
+}
+
+### Create a new user with Role/Authority USER
+POST    http://localhost:8080/api/auth/signup HTTP/1.1
+content-type: application/json
+
+{
+    "name": "user",
+    "email": "admin@ut.ee",
+    "password": "user",
+    "roles": "USER"
+}
+
+### login  
+POST    http://localhost:8080/api/auth/login HTTP/1.1
+content-type: application/json
+
+{
+    "name": "admin",
+    "password": "admin"
+}
+
+### authenticate - you need to add the generated token here, you can get it from your browser console when a user login or sign up
+GET     http://localhost:8080/api/auth/authenticate HTTP/1.1
+content-type: application/json
+Authorization: Bearer 
+
+### Get All products - port 8080 - API
+GET http://localhost:8080/api/products 
+Content-Type: application/json
+Authorization: Bearer 
+
